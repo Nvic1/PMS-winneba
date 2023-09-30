@@ -318,7 +318,7 @@ export default function AddNewInmate() {
                     </section> 
                     <section className="flex flex-col space-y-1">
                         <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Tatoo Description </label>
-                        <input {...register('tatooDescription', {required: true, minLength: 4})} className="rounded-lg bg-zinc-50 font-semibold text-sm px-4 py-1.5 outline-none ring ring-zinc-200 border-none text-cyan-800  focus:ring-fuchsia-300 focus:bg-white placeholder-slate-400" type="text" name="tatooDescription" id="" placeholder="Fair, Dark"/>
+                        <input {...register('tatooDescription', {required: true, minLength: 4})} className="rounded-lg bg-zinc-50 font-semibold text-sm px-4 py-1.5 outline-none ring ring-zinc-200 border-none text-cyan-800  focus:ring-fuchsia-300 focus:bg-white placeholder-slate-400" type="text" name="tatooDescription" id="" placeholder="Dragon Fire"/>
                             {
                                     errors && errors.tatooDescription?.type === "required" && ( <p className="text-left text-sm text-normal text-rose-600">can&apos;t be empty</p>)
                             }                        
@@ -342,7 +342,7 @@ export default function AddNewInmate() {
                             /> 
                         </section>
                         <section className="flex flex-col space-y-1">
-                            <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Nationality</label>
+                            <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Nose Type</label>
                             <Controller
                                 control={control}
                                 name="noseType"
