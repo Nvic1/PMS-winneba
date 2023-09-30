@@ -20,6 +20,7 @@ interface LoginInputs {
 export const LoginDialogue =  () => {
 
   const router = useRouter();
+  const [test, setTest] = useState();
 
 
   let [IsOpen, setIsOpen] = useState(false)
@@ -35,31 +36,40 @@ export const LoginDialogue =  () => {
 
   const MakeStaffLogin:SubmitHandler<LoginInputs> = async (data:LoginInputs) => {
 
+    
 
-    const response = await  AxiosFetch("POST", "login", data, token='');
+    const response = await AxiosFetch("POST", "login", data, localStorage.getItem('token'));
 
+    // console.log(response);
+
+  
     // const {token} = response.data;
     // console.log(response)
 
     // localStorage.setItem('token', token);
+    console.log(data)
 
-
-  //   axios.post('https://api.stinkcoal.com/api/login',data, {
-  //     headers: {
-  //         'Content-Type': 'application/json',
-  //         // 'Authorization': 'Bearer '+token,
-  //         'Access-Control-Allow-Origin': 'https://api.stinkcoal.com'
+    await axios.post('https://api.stinkcoal.com/api/login', data, {
+      headers: {
+          'Content-Type': 'application/json',
+          // 'Authorization': 'Bearer '+token,
+          'Access-Control-Allow-Origin': 'https://api.stinkcoal.com'
           
-  //     },      
-  // })      
-  // .then((response) => {
-  //   console.log('response',response.data)
+      },      
+  })      
+  .then((response) => {
 
-  // })
-  // .catch((error) => {
-  //   console.log(error)
+    if(response.data.status){
+      localStorage.setItem('token', response.data.token)
+      router.push('/dashboard')
+    } 
 
-  // })
+
+  })
+  .catch((error) => {
+    console.log("axios encounted an error", error.response.data)
+
+  })
 
 
   }

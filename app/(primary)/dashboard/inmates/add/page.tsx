@@ -5,6 +5,7 @@ import SelectDropdown from '@/components/disclosures/select-dropdown';
 import {useForm, SubmitHandler, Controller} from 'react-hook-form';
 import { RegFields } from '@/components/interfaces/RegisterFormInputs';
 import AxiosFetch  from '@/api/laravelapi';
+import axios from 'axios';
 
 
 
@@ -17,14 +18,35 @@ export default function AddNewInmate() {
 
     const RegisterInmate:SubmitHandler<RegFields> = async (data:RegFields) => {
         const token = localStorage.getItem('token')
-        // console.log(token)
-        const response = await AxiosFetch("POST", "write", data, token);
+        // const response = await AxiosFetch("POST", "write", data, token);
 
+        console.log(data)
+        await axios.post('https://api.stinkcoal.com/api/write', data, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+token,
+                'Access-Control-Allow-Origin': 'https://api.stinkcoal.com',
+                'Content-Type': 'multipart/form-data',
+                
+            },      
+        })      
+        .then((response) => {
+      
+          if(response.data.status){
+            console.log(response.data)
+          } 
+      
+      
+        })
+        .catch((error) => {
+          console.log("axios encounted an error", error.response.data)
+      
+        })
     }
 
     return (
         <main className='flex flex-col overflow-y-auto h-full ml-12'>
-            <form onSubmit={handleSubmit(RegisterInmate)} className="flex relative flex-col border rounded-lg border-indigo-50 bg-addInmate px-6 pb-6">
+            <form onSubmit={handleSubmit(RegisterInmate)} className="flex relative flex-col border rounded-lg border-indigo-50 bg-addInmate px-6 pb-6" enctype="multipart/form-data">
 
                 <div className="w-52 border-b-2 border-neutral-500 p-1 grow-0 mt-2">
                     <p className="text-slate-700 text-xl font-semibold">Personal Information</p>

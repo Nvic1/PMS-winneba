@@ -10,7 +10,7 @@ type AxiosData = {
 
 
 
-async function AxiosFetch(method, endpoint, data=null, token=null){
+async function AxiosFetch(method, endpoint, data=null, token=null ){
     const API_URL = 'https://api.stinkcoal.com/api';
 
 
@@ -27,15 +27,20 @@ async function AxiosFetch(method, endpoint, data=null, token=null){
                     
                 },  
 
-            }).then((response) => console.log(response.data)).catch((error) => console.log(error.response.data));
+            }).then((response) => {
+                const {token} = response.data;
 
-            // if(response.data.status) return response.data;
-            // else{ return response.data}
+                localStorage.setItem('token', token )
+                return response
+
+            }).catch((error) => error.response);
+
+
             
         }
         
         catch(error) {
-            console.log("CUSTOM AXIOS ERROR: ")
+            console.log("CUSTOM AXIOS ERROR:", error)
         }
 
 }
