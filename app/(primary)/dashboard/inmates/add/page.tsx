@@ -2,10 +2,9 @@
 
 
 import SelectDropdown from '@/components/disclosures/select-dropdown';
-import { data } from 'autoprefixer';
 import {useForm, SubmitHandler, Controller} from 'react-hook-form';
-import RegFields from '@/components/interfaces/RegisterFormInputs'
-
+import { RegFields } from '@/components/interfaces/RegisterFormInputs';
+import AxiosFetch  from '@/api/laravelapi';
 
 
 
@@ -13,20 +12,14 @@ import RegFields from '@/components/interfaces/RegisterFormInputs'
 
 export default function AddNewInmate() {
 
-    const {register, formState: {errors}, handleSubmit } = useForm<RegFields>();
+    const {control, register, formState: {errors}, handleSubmit } = useForm<RegFields>();
 
 
+    const RegisterInmate:SubmitHandler<RegFields> = async (data:RegFields) => {
+        const token = localStorage.getItem('token')
+        // console.log(token)
+        const response = await AxiosFetch("POST", "write", data, token);
 
-
-
-    const numberSchemeValidation = {
-        required: "can\'t be empty",
-
-        
-    }
-
-    const RegisterInmate:SubmitHandler<RegFields> = (data) => {
-        console.log(data)
     }
 
     return (
@@ -57,7 +50,7 @@ export default function AddNewInmate() {
                             <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Middle Name</label>
                             <input {...register("middleName", {required: true, minLength: 4})} className="rounded-lg bg-zinc-50 font-semibold  text-sm px-4 py-1.5 outline-none ring ring-zinc-200 border-none text-cyan-800  focus:ring-fuchsia-300 focus:bg-white placeholder-slate-400" type="text" name="middleName" id="" placeholder="Simon"/>
                             {
-                                errors && errors.middleName?.type === "required" && ( <p className="text-left text-sm text-normal text-rose-600">{errors.middleName?.message}</p>)
+                                errors && errors.middleName?.type === "required" && ( <p className="text-left text-sm text-normal text-rose-600">can&apos;t be empty</p>)
                             }
                             {
                                 errors && errors.middleName?.type === "minLength" && ( <p className="text-left text-sm text-normal text-rose-600">minimum length must be 8 characters</p>)
@@ -98,7 +91,18 @@ export default function AddNewInmate() {
 
                         <section className="flex flex-col space-y-1">
                             <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Educational Level</label>
-                            <SelectDropdown list={['Primary', 'Secondary', 'Tertiary']}/>
+                            <Controller
+                                control={control}
+                                name="educationalLevel"
+                                defaultValue="Secondary"
+                                render={({ field: {onChange, value} }) => (
+                                <SelectDropdown
+                                    onChange={onChange}
+                                    value={value}
+                                    list={['Primary', 'Secondary', 'Tertiary']}
+                                />
+                                )}
+                            />                            
                         </section>
 
                         <section className="flex flex-col space-y-1">
@@ -130,25 +134,71 @@ export default function AddNewInmate() {
                                     errors && errors.dateofBirth?.type === "required" && ( <p className="text-left text-sm text-normal text-rose-600">can&apos;t be empty</p>)
                             }  
                         </section>
-                        {/* <section className="flex flex-col space-y-1">
+                        <section className="flex flex-col space-y-1">
                             <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Religion</label>
-                            <SelectDropdown list={['Christianity', 'Islamic', 'Traditional']}/>
+                            <Controller
+                                control={control}
+                                name="religion"
+                                defaultValue="Christianity"
+                                render={({ field: {onChange, value} }) => (
+                                <SelectDropdown
+                                    onChange={onChange}
+                                    value={value}
+                                    list={['Christianity', 'Islamic', 'Traditionalist']}
+                                />
+                                )}
+                            />                             
                         </section>
 
                         <section className="flex flex-col space-y-1">
                             <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Gender</label>
-                            <SelectDropdown list={['Male', 'Female', 'Binary']}/>
+
+                            <Controller
+                                control={control}
+                                name="gender"
+                                defaultValue="Female"
+                                render={({ field: {onChange, value} }) => (
+                                <SelectDropdown
+                                    onChange={onChange}
+                                    value={value}
+                                    list={['Male', 'Female', 'Binary']}
+                                />
+                                )}
+                            /> 
+
                         </section>
 
                         <section className="flex flex-col space-y-1">
                             <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Marital Status</label>
-                            <SelectDropdown list={['Married', 'Divorced', 'Single']}/>
+                            <Controller
+                                control={control}
+                                defaultValue="Divorced"
+                                name="maritalStatus"
+                                render={({ field: {onChange, value} }) => (
+                                <SelectDropdown
+                                    onChange={onChange}
+                                    value={value}
+                                    list={['Married', 'Divorced', 'Single']}
+                                />
+                                )}
+                            /> 
                         </section>
 
                         <section className="flex flex-col space-y-1">
                             <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Nationality</label>
-                            <SelectDropdown list={['Ghanaian', 'Nigerian', 'Togo']}/>
-                        </section> */}
+                            <Controller
+                                control={control}
+                                name="nationality"
+                                defaultValue="Ghanaian"
+                                render={({ field: {onChange, value} }) => (
+                                <SelectDropdown
+                                    onChange={onChange}
+                                    value={value}
+                                    list={['Ghanaian', 'Nigerian', 'Togo']}
+                                />
+                                )}
+                            /> 
+                        </section>
 
                         <section className="flex flex-col space-y-1">
                             <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">City/Town</label>
@@ -182,7 +232,26 @@ export default function AddNewInmate() {
                                 errors && errors.landMark?.type === "minLength" && ( <p className="text-left text-sm text-normal text-rose-600">minimum length must be 8 characters</p>)
                             }
                         </section>
-
+                        <section className="flex flex-col space-y-1">
+                            <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">House Number</label>
+                            <input {...register("houseNumber", {required: true, minLength: 4})} className="rounded-lg bg-zinc-50 font-semibold text-sm px-4 py-1.5 outline-none ring ring-zinc-200 border-none text-cyan-800  focus:ring-fuchsia-300 focus:bg-white placeholder-slate-400" type="text" name="houseNumber" id="" placeholder="Aviator Zone 2"/>
+                            {
+                                errors && errors.houseNumber?.type === "required" && ( <p className="text-left text-sm text-normal text-rose-600">can&apos;t be empty</p>)
+                            }
+                            {
+                                errors && errors.houseNumber?.type === "minLength" && ( <p className="text-left text-sm text-normal text-rose-600">minimum length must be 8 characters</p>)
+                            }
+                        </section>
+                        <section className="flex flex-col space-y-1">
+                            <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Digital Address</label>
+                            <input {...register("digitalAddress", {required: true, minLength: 4})} className="rounded-lg bg-zinc-50 font-semibold text-sm px-4 py-1.5 outline-none ring ring-zinc-200 border-none text-cyan-800  focus:ring-fuchsia-300 focus:bg-white placeholder-slate-400" type="text" name="digitalAddress" id="" placeholder="Aviator Zone 2"/>
+                            {
+                                errors && errors.digitalAddress?.type === "required" && ( <p className="text-left text-sm text-normal text-rose-600">can&apos;t be empty</p>)
+                            }
+                            {
+                                errors && errors.digitalAddress?.type === "minLength" && ( <p className="text-left text-sm text-normal text-rose-600">minimum length must be 8 characters</p>)
+                            }
+                        </section>
                         <section className="flex flex-col space-y-1">
                             <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">National ID</label>
                             <input {...register("nationalID", {required: true, minLength: 4})} className="rounded-lg bg-zinc-50 font-semibold text-sm px-4 py-1.5 outline-none ring ring-zinc-200 border-none text-cyan-800  focus:ring-fuchsia-300 focus:bg-white placeholder-slate-400" type="text" name="nationalID" id="" placeholder="GHA-0232-20343"/>
@@ -247,6 +316,46 @@ export default function AddNewInmate() {
                                     errors && errors.skinTone?.type === "minLength" && ( <p className="text-left text-sm text-normal text-rose-600">minimum length must be 3 characters</p>)
                             }                            
                     </section> 
+                    <section className="flex flex-col space-y-1">
+                        <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Tatoo Description </label>
+                        <input {...register('tatooDescription', {required: true, minLength: 4})} className="rounded-lg bg-zinc-50 font-semibold text-sm px-4 py-1.5 outline-none ring ring-zinc-200 border-none text-cyan-800  focus:ring-fuchsia-300 focus:bg-white placeholder-slate-400" type="text" name="tatooDescription" id="" placeholder="Fair, Dark"/>
+                            {
+                                    errors && errors.tatooDescription?.type === "required" && ( <p className="text-left text-sm text-normal text-rose-600">can&apos;t be empty</p>)
+                            }                        
+                            {
+                                    errors && errors.tatooDescription?.type === "minLength" && ( <p className="text-left text-sm text-normal text-rose-600">minimum length must be 3 characters</p>)
+                            }                            
+                    </section> 
+                        <section className="flex flex-col space-y-1">
+                            <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Eye Size</label>
+                            <Controller
+                                control={control}
+                                name="eyeSize"
+                                defaultValue="Small"
+                                render={({ field: {onChange, value} }) => (
+                                <SelectDropdown
+                                    onChange={onChange}
+                                    value={value}
+                                    list={['Small', 'Medium', 'Large']}
+                                />
+                                )}
+                            /> 
+                        </section>
+                        <section className="flex flex-col space-y-1">
+                            <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Nationality</label>
+                            <Controller
+                                control={control}
+                                name="noseType"
+                                defaultValue="Small"
+                                render={({ field: {onChange, value} }) => (
+                                <SelectDropdown
+                                    onChange={onChange}
+                                    value={value}
+                                    list={['Small', 'Medium', 'Large']}
+                                />
+                                )}
+                            /> 
+                        </section>
 
                     <section className="flex flex-col space-y-1 col-span-3">
                         <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Personal Belonging</label>
@@ -301,7 +410,7 @@ export default function AddNewInmate() {
                     </section> 
                     <section className="flex flex-col space-y-1 col-span-2">
                         <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Custodial Status</label>
-                        <input {...register('custodialStatus', {required: true, minLength:5})} className="rounded-lg bg-zinc-50 font-semibold text-sm px-4 py-1.5 outline-none ring ring-zinc-200 border-none text-cyan-800  focus:ring-fuchsia-300 focus:bg-white placeholder-slate-400 tracking-tighter" type="text" name="custodialStatus" id="" placeholder="Serving a status, Awaiting trial, pretrial detention or None"/>
+                        <input {...register('custodialStatus', {required: true, minLength:5})} className="rounded-lg bg-zinc-50 font-semibold text-sm px-4 py-1.5 outline-none ring ring-zinc-200 border-none text-cyan-800  focus:ring-fuchsia-300 focus:bg-white placeholder-slate-400 tracking-tighter" type="text" name="custodialStatus" id="" placeholder="Serving a sentence, Awaiting trial, pretrial detention or None"/>
                             {
                                     errors && errors.custodialStatus?.type === "required" && ( <p className="text-left text-sm text-normal text-rose-600">can&apos;t be empty</p>)
                             }                        

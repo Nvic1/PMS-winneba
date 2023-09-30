@@ -5,13 +5,10 @@ export interface RegFields {
     middleName?: string,
     lastName: string,
     photo: string,
-    educationalLeve: string,
     contact: string, 
     occupation: string,
     dateofBirth: string,
-    religion: string,
-    gender: string,
-    maritalStatus: string,
+
     nationality: string,
     cityTown: string,
     landMark: string,
@@ -64,5 +61,28 @@ export interface RegFields {
     specialNeeds: string,
     approvedVisitors: string,
     disciplinaryActions: string,
-    behaviorReports
+
+
+    educationalLevel: string,
+    religion: string,
+    gender: string,
+    maritalStatus: string,
+
+    // new fields
+    houseNumber: string,
+    digitalAddress: string,
+    mothersContact: string,
+    fathersContact: string,
+    spouseName: string,
+    spouseContact: string,
+    noSiblings: number,
+
+    eyebrowLength: string,
+    bodyStature: string,
+    tatooDescription: string,
+    noseType: string,
+    eyeSize: string
+
+
+    
 }

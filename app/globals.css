@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Jost';
+  src: url("/static/fonts/JostVariable.ttf") format("truetype");
+}
+
+
+html{
+  font-family: "Jost";
+}
+
+.bg-image{
+  background: linear-gradient(180deg, #F0F2FD 0%, #FFF8F9 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-addInmate{
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.40) 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
