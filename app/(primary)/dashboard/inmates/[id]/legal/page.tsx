@@ -8,7 +8,7 @@ export default function LegalRecords() {
       <main className="flex flex-col overflow-hidden">
 
         <span className="flex justify-between items-center mt-3 ">
-          <Button action={`back`} style={`text-slate-600 text-base font-bold px-4 py-2 rounded-xl  cursor-pointer hover:underline`}>&nbsp;{`<`} Go Back</Button>
+          <Button isLink="" action={`back`} style={`text-slate-600 text-base font-bold px-4 py-2 rounded-xl  cursor-pointer hover:underline`}>&nbsp;{`<`} Go Back</Button>
           <LegalinfoUpdate/>          
         </span>
   
