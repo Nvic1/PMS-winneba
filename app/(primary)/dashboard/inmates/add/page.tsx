@@ -238,7 +238,7 @@ export default function AddNewInmate() {
                         </section>
 
                         <section className="flex flex-col space-y-1">
-                            <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">City/Town</label>
+                            <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">City or Town</label>
                             <input {...register("cityTown", {required: true, minLength: 4})} className="rounded-lg bg-zinc-50 font-semibold text-sm px-4 py-1.5 outline-none ring ring-zinc-200 border-none text-cyan-800  focus:ring-fuchsia-300 focus:bg-white placeholder-slate-400" type="text" name="cityTown" id="" placeholder="Katamanso"/>
                             {
                                 errors && errors.cityTown?.type === "required" && ( <p className="text-left text-sm text-normal text-rose-600">input is required</p>)
@@ -302,7 +302,7 @@ export default function AddNewInmate() {
                         </section>
                         
                         <section className="flex flex-col space-y-1">
-                            <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Height(cm)</label>
+                            <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Height</label>
                             <input {...register('height', {valueAsNumber: true, required: true, validate: (value, formValue) => value >= 100})} className="rounded-lg bg-zinc-50 font-semibold text-sm px-4 py-1.5 outline-none ring ring-zinc-200 border-none text-cyan-800  focus:ring-fuchsia-300 focus:bg-white placeholder-slate-400" type="number" name="height" id="" placeholder="112"/>
                             {
                                 errors && errors.height?.type === "required" && ( <p className="text-left text-sm text-normal text-rose-600">input is required</p>)
@@ -313,7 +313,7 @@ export default function AddNewInmate() {
                         </section>  
 
                         <section className="flex flex-col space-y-1">
-                            <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Weight(kg)</label>
+                            <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Weight</label>
                             <input {...register('weight', {valueAsNumber: true, required: true, validate: (value, formValue) => value >= 40})} className="rounded-lg bg-zinc-50 font-semibold text-sm px-4 py-1.5 outline-none ring ring-zinc-200 border-none text-cyan-800  focus:ring-fuchsia-300 focus:bg-white placeholder-slate-400" type="number" name="weight" id="" placeholder="70"/>
                             {
                                 errors && errors.weight?.type === "required" && ( <p className="text-left text-sm text-normal text-rose-600">input is required</p>)
@@ -526,7 +526,7 @@ export default function AddNewInmate() {
                             }                            
                     </section>  
                     <section className="flex flex-col space-y-1">
-                        <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Attorney's Name</label>
+                        <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Attorney&apos;s Name</label>
                         <input {...register('attorneyName', {required: true, minLength:5})} className="rounded-lg bg-zinc-50 font-semibold text-sm px-4 py-1.5 outline-none ring ring-zinc-200 border-none text-cyan-800  focus:ring-fuchsia-300 focus:bg-white placeholder-slate-400" type="text" name="attorneyName" id="" placeholder="Dr Peter Atimpoku"/>
                             {
                                     errors && errors.attorneyName?.type === "required" && ( <p className="text-left text-sm text-normal text-rose-600">input is required</p>)
@@ -536,7 +536,7 @@ export default function AddNewInmate() {
                             }                            
                     </section>  
                     <section className="flex flex-col space-y-1">
-                        <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Attorney's Contact</label>
+                        <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Attorney&apos;s Contact</label>
                         <input {...register('attorneyContact', {required: true, minLength:5})} className="rounded-lg bg-zinc-50 font-semibold text-sm px-4 py-1.5 outline-none ring ring-zinc-200 border-none text-cyan-800  focus:ring-fuchsia-300 focus:bg-white placeholder-slate-400" type="text" name="attorneyContact" id="" placeholder="0209912345"/>
                             {
                                     errors && errors.attorneyContact?.type === "required" && ( <p className="text-left text-sm text-normal text-rose-600">input is required</p>)
@@ -616,7 +616,7 @@ export default function AddNewInmate() {
                             } 
                     </section> 
                     <section className="flex flex-col space-y-1">
-                        <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Next-of-Kin Name</label>
+                        <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Next of Kin Name</label>
                         <input {...register('nextofkin', {required: true, minLength:5})} className="rounded-lg bg-zinc-50 font-semibold text-sm px-4 py-1.5 outline-none ring ring-zinc-200 border-none text-cyan-800  focus:ring-fuchsia-300 focus:bg-white placeholder-slate-400" type="text" name="nextofkin" id="" placeholder="Rose Agyiri"/>
                                                     {
                                     errors && errors.nextofkin?.type === "required" && ( <p className="text-left text-sm text-normal text-rose-600">input is required</p>)
@@ -626,7 +626,7 @@ export default function AddNewInmate() {
                             } 
                     </section> 
                     <section className="flex flex-col space-y-1">
-                        <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Next-of-Kin Phone</label>
+                        <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Next of Kin Phone</label>
                         <input {...register('nextofkinPhone', {required: true, minLength:5})} className="rounded-lg bg-zinc-50 font-semibold text-sm px-4 py-1.5 outline-none ring ring-zinc-200 border-none text-cyan-800  focus:ring-fuchsia-300 focus:bg-white placeholder-slate-400" type="text" name="nextofkinPhone" id="" placeholder="0204466666"/>
                                                     {
                                     errors && errors.nextofkinPhone?.type === "required" && ( <p className="text-left text-sm text-normal text-rose-600">input is required</p>)
@@ -636,7 +636,7 @@ export default function AddNewInmate() {
                             } 
                     </section> 
                     <section className="flex flex-col space-y-1">
-                        <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Next-of-Kin Relationship</label>
+                        <label className='text-sm text-slate-600 font-medium tracking-tight' htmlFor="">Next of Kin Relationship</label>
                         <input {...register('nextofkinRelationship', {required: true, minLength:5})} className="rounded-lg bg-zinc-50 font-semibold text-sm px-4 py-1.5 outline-none ring ring-zinc-200 border-none text-cyan-800  focus:ring-fuchsia-300 focus:bg-white placeholder-slate-400" type="text" name="nextofkinRelationship" id="" placeholder="Sister"/>
                                                     {
                                     errors && errors.nextofkinRelationship?.type === "required" && ( <p className="text-left text-sm text-normal text-rose-600">input is required</p>)
