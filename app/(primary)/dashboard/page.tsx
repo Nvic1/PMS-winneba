@@ -1,4 +1,3 @@
-import CalendarToday from "@/components/miscellaneous/calendar";
 
 export default function Dashboard() {
 
