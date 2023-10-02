@@ -8,7 +8,7 @@ export default function DiciplinaryRecords() {
 
 
         <span className="flex justify-between items-center mt-3 ">
-          <Button isLink="" action={`back`} style={`text-slate-600 text-base font-bold px-4 py-2 rounded-xl  cursor-pointer hover:underline`}>&nbsp;{`<`} Go Back</Button>
+          <Button isLink="" action={`back`} style={`text-slate-600 text-base font-bold px-4 py-2 rounded-xl  cursor-pointer hoverunderline`}>&nbsp;{`<`} Go Back</Button>
 
           <DisciplinaryActionsForm/>
 
@@ -59,7 +59,7 @@ export default function DiciplinaryRecords() {
               </p>
             </span>
             <span className="flex space-x-4 items-center">
-              <p className="text-slate-500 text-sm font-medium tracking-tighter leading-tight">Disciplinary Hearing Date:&#58;</p>
+              <p className="text-slate-500 text-sm font-medium tracking-tighter leading-tight">Disciplinary Hearing Date&#58;</p>
               <p className="text-cyan-800 text-sm tracking-wider leading-loose font-bold">
               September 5, 2023
               </p>
@@ -69,7 +69,7 @@ export default function DiciplinaryRecords() {
               <p className="text-cyan-800 text-sm tracking-wider leading-loose font-bold">Lieutenant Astanal</p>
             </span>
             <span className="flex space-x-4 items-center">
-              <p className="text-slate-500 text-sm font-medium tracking-tighter leading-tight">Inmate's Statement:&#58;</p>
+              <p className="text-slate-500 text-sm font-medium tracking-tighter leading-tight">Inmate's Statement&#58;</p>
               <p className="text-cyan-800 text-sm tracking-wider leading-loose font-bold">Acknowledged the refusal but claimed misunderstanding</p>
             </span>
             <span className="flex space-x-4 items-center">
