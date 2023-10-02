@@ -15,7 +15,7 @@ import {useRouter} from 'next/navigation'
 
 export default function AddNewInmate() {
     const router = useRouter();
-    
+
     const {control, register, formState: {errors}, handleSubmit } = useForm<RegFields>();
 
     const [SelectedFiles, setSelectedFiles] = useState<File | null>();
@@ -49,7 +49,7 @@ export default function AddNewInmate() {
         //   console.log("axios encounted an error", error.response.data)
       
         // })
-        router.push('')
+        router.push('/dashboard/inmates/5/')
 
     }
 

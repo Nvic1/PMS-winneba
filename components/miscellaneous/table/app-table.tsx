@@ -12,11 +12,13 @@ import
     } from '@tanstack/react-table';
 import React, { useMemo, useState } from 'react';
 import MOCKDATA from '../../../MOCK_DATA.json'
+import { useRouter } from 'next/navigation';
 
 
 
 
 export default function DataTable() {
+    const router = useRouter()
 
     const columns = [
 
@@ -89,7 +91,7 @@ export default function DataTable() {
 
                         {
                             table.getHeaderGroups().map((headerGroup) => (
-                                <tr key={headerGroup.id} className='text-base font-normal text-slate-500 tracking-tighter leading-tight'>
+                                <tr key={headerGroup.id} className='text-base font-normal text-slate-500 tracking-tighter leading-tight' >
                                     {headerGroup.headers.map(header => (
                                         <th key={headerGroup.id} className='py-1.5 px-4'>
                                             {
@@ -104,7 +106,7 @@ export default function DataTable() {
 
                     <tbody>
                         {table.getRowModel().rows.map((row) => (
-                            <tr key={row.id} className='bg-white hover:bg-slate-100 cursor-pointer hover:shadow-md text-neutral-700 font-medium tracking-tight'>
+                            <tr onClick={() => router.push('/dashboard/inmates/4/')} key={row.id} className='bg-white hover:bg-slate-100 cursor-pointer hover:shadow-md text-neutral-700 font-medium tracking-tight'>
                                 {
                                     row.getVisibleCells().map((cell) => (
                                         <td key={cell.id} className='py-1.5 px-4'>

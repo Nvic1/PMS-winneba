@@ -19,18 +19,6 @@ const menuItems = [
     }
   },
 
-  {
-    name: 'Blocks',
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className='h-5 w-5 icon stroke-slate-500 fill-slate-500' viewBox="0 0 1024 1024">
-            <path d="M512 0 0 320h1024L512 0zm288 384 32 64v384h128V448l32-64H800zm-256 0 32 64v384h128V448l32-64H544zm-256 0 32 64v384h128V448l32-64H288zm-256 0 32 64v384h128V448l32-64H32zm0 512L0 1024h1024l-32-128H32zm544-704c0 35.346-28.654 64-64 64s-64-28.654-64-64 28.654-64 64-64 64 28.654 64 64z"/>
-          </svg>,
-    props: {
-      urlOne: `/dashboard/blocks/cells`, 
-      urlTwo: `/dashboard/blocks/add`, 
-      one:`Cells`, 
-      two: `Add New Cell`
-    }
-  }
 ]
 
 

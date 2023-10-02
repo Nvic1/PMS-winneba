@@ -63,13 +63,7 @@ export default function RootLayout({
                 </Link>
 
 
-                <Link href={`/dashboard/blocks/add`} className='flex items-center space-x-3 px-6 py-2 bg-neutral-400 rounded-lg hover:bg-cyan-700 outline-none'>
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" className='h-4 w-4 icon stroke-white fill-white' viewBox="0 0 1024 1024">
-                      <path d="M512 0 0 320h1024L512 0zm288 384 32 64v384h128V448l32-64H800zm-256 0 32 64v384h128V448l32-64H544zm-256 0 32 64v384h128V448l32-64H288zm-256 0 32 64v384h128V448l32-64H32zm0 512L0 1024h1024l-32-128H32zm544-704c0 35.346-28.654 64-64 64s-64-28.654-64-64 28.654-64 64-64 64 28.654 64 64z"/>
-                    </svg>                  </span>
-                  <span className="text-sm text-white tracking-tight font-semibold cursor-pointer ">New Cell</span>
-                </Link>
+
 
 
 

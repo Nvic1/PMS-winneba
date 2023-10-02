@@ -91,12 +91,6 @@ export default function Dashboard() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr className="text-base text-slate-700 font-medium">
-                                        <td className="py-1">Peter Kasa</td>
-                                        <td className="px-4 py-1">365 Days</td>
-                                        <td className="px-4 py-1">CH-0102</td>
-                                        <td className="px-4 py-1">20</td>
-                                    </tr>
 
                                 </tbody>
                             </table>
@@ -122,36 +116,7 @@ export default function Dashboard() {
                                         <td className="px-4 py-1">CH-0102</td>
                                         <td className="px-4 py-1">20</td>
                                     </tr>
-                                    <tr className="text-sm text-slate-700 font-medium">
-                                        <td className="py-1">Peter Kasa</td>
-                                        <td className="px-4 py-1">365 Days</td>
-                                        <td className="px-4 py-1">CH-0102</td>
-                                        <td className="px-4 py-1">20</td>
-                                    </tr>
-                                    <tr className="text-sm text-slate-700 font-medium">
-                                        <td className="py-1">Peter Kasa</td>
-                                        <td className="px-4 py-1">365 Days</td>
-                                        <td className="px-4 py-1">CH-0102</td>
-                                        <td className="px-4 py-1">20</td>
-                                    </tr>
-                                    <tr className="text-sm text-slate-700 font-medium">
-                                        <td className="py-1">Peter Kasa</td>
-                                        <td className="px-4 py-1">365 Days</td>
-                                        <td className="px-4 py-1">CH-0102</td>
-                                        <td className="px-4 py-1">20</td>
-                                    </tr>
-                                    <tr className="text-sm text-slate-700 font-medium">
-                                        <td className="py-1">Peter Kasa</td>
-                                        <td className="px-4 py-1">365 Days</td>
-                                        <td className="px-4 py-1">CH-0102</td>
-                                        <td className="px-4 py-1">20</td>
-                                    </tr>
-                                    <tr className="text-sm text-slate-700 font-medium">
-                                        <td className="py-1">Peter Kasa</td>
-                                        <td className="px-4 py-1">365 Days</td>
-                                        <td className="px-4 py-1">CH-0102</td>
-                                        <td className="px-4 py-1">20</td>
-                                    </tr>
+
 
                                 </tbody>
                             </table>
