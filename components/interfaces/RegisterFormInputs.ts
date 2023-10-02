@@ -17,7 +17,7 @@ export interface RegFields {
     age: number,
     date: Date,
     personalBelongings: string,
-    personalPhoto: Blob, 
+    // personalPhoto: File, 
 
 
     // Physical Information

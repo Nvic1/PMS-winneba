@@ -47,30 +47,30 @@ export const LoginDialogue =  () => {
     // console.log(response)
 
     // localStorage.setItem('token', token);
-    console.log(data)
+  //   console.log(data)
 
-    await axios.post('https://api.stinkcoal.com/api/login', data, {
-      headers: {
-          'Content-Type': 'application/json',
-          // 'Authorization': 'Bearer '+token,
-          'Access-Control-Allow-Origin': 'https://api.stinkcoal.com'
+  //   await axios.post('https://api.stinkcoal.com/api/login', data, {
+  //     headers: {
+  //         'Content-Type': 'application/json',
+  //         // 'Authorization': 'Bearer '+token,
+  //         'Access-Control-Allow-Origin': 'https://api.stinkcoal.com'
           
-      },      
-  })      
-  .then((response) => {
+  //     },      
+  // })      
+  // .then((response) => {
 
-    if(response.data.status){
-      localStorage.setItem('token', response.data.token)
+  //   if(response.data.status){
+  //     localStorage.setItem('token', response.data.token)
+  //   } 
+  
+
+  // })
+  // .catch((error) => {
+  //   console.log("axios encounted an error", error.response.data)
+
+  // })
+  
       router.push('/dashboard')
-    } 
-
-
-  })
-  .catch((error) => {
-    console.log("axios encounted an error", error.response.data)
-
-  })
-
 
   }
 

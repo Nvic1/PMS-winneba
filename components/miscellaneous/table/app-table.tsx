@@ -22,38 +22,38 @@ export default function DataTable() {
 
         {
             header: 'Inmate ID',
-            accessorKey: 'id',
+            accessorKey: 'inmateID',
     
         },
         {
-            header: 'Full Name',
-            accessorKey: 'full_name',
+            header: 'First Name',
+            accessorKey: 'firstName',
         },
 
-        // {header: "Full Detail", accessorFn: row => `${row.full_name}-${row.cell_no}`},
-        // {
-        //     header: 'Date Convicted',
-        //     accessorKey: 'check_in',
-        //     footer: 'checkin',
-        // },
         {
-            header: 'Cell ID',
-            accessorKey: 'cell_no',
+            header: 'Last Name',
+            accessorKey: 'lastName',
 
         },
         {
-            header: 'Age',
-            accessorKey: 'age',
-            cell: info => parseInt(info.getValue()) + 2
+            header: 'Date of Birth',
+            accessorKey: 'dateofBirth',
+        },
+        {
+            header: 'Gender',
+            accessorKey: 'gender',
+    
         },
         {
             header: 'Custodial Status',
-            accessorKey: 'status',
+            accessorKey: 'custodialStatus',
     
         },
-        // educationalLevel,
-        // nationality
-        // dateofbirth
+        {
+            header: 'Cell Number',
+            accessorKey: 'cellNumber',
+    
+        },
     
     
     ]
